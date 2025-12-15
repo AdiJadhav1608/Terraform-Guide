@@ -3,10 +3,12 @@
 ====================================================
 
 🔷 **What is Terraform?**
+
 Terraform is an **open-source Infrastructure as Code (IaC) tool** developed by **HashiCorp**.  
 It allows you to **define, provision, and manage infrastructure** using simple, human-readable configuration files.
 
 With Terraform, infrastructure becomes:
+
 ✔ Predictable  
 ✔ Repeatable  
 ✔ Version-controlled  
@@ -14,9 +16,11 @@ With Terraform, infrastructure becomes:
 ----------------------------------------------------
 
 🧱 **What is Infrastructure as Code (IaC)?**
+
 Infrastructure as Code (IaC) is the practice of **managing infrastructure using code instead of manual processes**.
 
 ✨ **Benefits of IaC**
+
 ✔ Automated infrastructure provisioning  
 ✔ Consistent environments  
 ✔ Easy rollback using version control  
@@ -26,6 +30,7 @@ Infrastructure as Code (IaC) is the practice of **managing infrastructure using 
 ----------------------------------------------------
 
 ⭐ **Why Terraform?**
+
 Terraform is widely adopted because it:
 
 ✔ Works with **multiple cloud providers** (AWS, Azure, GCP)  
@@ -37,6 +42,7 @@ Terraform is widely adopted because it:
 ----------------------------------------------------
 
 🧠 **Core Terraform Concepts**
+
 • **Provider** – Connects Terraform to cloud platforms  
 • **Resource** – Infrastructure components (EC2, S3, VPC)  
 • **State** – Tracks real-world infrastructure  
@@ -47,6 +53,7 @@ Terraform is widely adopted because it:
 ----------------------------------------------------
 
 🔄 **Terraform Workflow**
+
 1️⃣ Write configuration files (`.tf`)  
 2️⃣ Initialize Terraform → `terraform init`  
 3️⃣ Preview changes → `terraform plan`  
@@ -56,6 +63,7 @@ Terraform is widely adopted because it:
 ----------------------------------------------------
 
 🌍 **Where is Terraform Used?**
+
 • Cloud infrastructure provisioning  
 • DevOps automation  
 • CI/CD pipelines  
@@ -65,6 +73,7 @@ Terraform is widely adopted because it:
 ----------------------------------------------------
 
 🏗️ **Real-World Example**
+
 Using Terraform, you can automate:
 
 ✔ VPC creation  
@@ -76,6 +85,7 @@ Using Terraform, you can automate:
 ----------------------------------------------------
 
 📌 **Important Note**
+
 This topic focuses on **conceptual understanding only**.  
 No Terraform code is required here.
 
