@@ -1,66 +1,62 @@
 ====================================================
-📝 **Topic 04: Terraform Configuration Files**
+🧰 **Topic 03: Terraform CLI Basics**
 ====================================================
 
 🎯 **Objective**
-Understand Terraform configuration files, their structure, naming conventions, and how Terraform processes them to create infrastructure.
+Understand the **Terraform Command Line Interface (CLI)** and learn the **core commands** used in day-to-day Terraform workflows.
 
-📄 **What Are Terraform Configuration Files?**
-Terraform configuration files are plain text files written using **HashiCorp Configuration Language (HCL)**. These files define the desired state of infrastructure in a declarative way.
+🖥️ **What is Terraform CLI?**
+The Terraform CLI is the primary way to **interact with Terraform**.  
+It allows you to initialize projects, preview changes, apply infrastructure, and destroy resources.
 
-✔ File extension: `.tf`  
-✔ Human-readable and machine-friendly  
-✔ Focus on WHAT to create, not HOW  
+⚙️ **Core Terraform CLI Commands**
+These commands form the **foundation of Terraform usage**:
 
-📁 **Common Terraform Configuration Files**
-Although Terraform does not enforce file names, the following are widely used best practices:
+🔹 **terraform init**
+✔ Initializes a Terraform working directory  
+✔ Downloads required providers and modules  
+✔ Must be run before any other command  
 
-🔹 **main.tf** – Contains core resource definitions  
-🔹 **provider.tf** – Defines provider configuration  
-🔹 **variables.tf** – Declares input variables  
-🔹 **outputs.tf** – Defines output values  
-🔹 **terraform.tfvars** – Assigns variable values  
+🔹 **terraform plan**
+✔ Creates an execution plan  
+✔ Shows what Terraform will create, update, or destroy  
+✔ Does NOT make any real changes  
 
-📐 **Terraform Block Structure**
-Terraform configurations are written using blocks. Each block follows this general syntax:
+🔹 **terraform apply**
+✔ Applies the changes defined in configuration files  
+✔ Creates or updates infrastructure  
+✔ Asks for confirmation before execution  
 
-block_type "block_name" {
-  argument = value
-}
+🔹 **terraform destroy**
+✔ Destroys all resources managed by Terraform  
+✔ Used to clean up infrastructure  
 
-Common block types include:
-✔ provider  
-✔ resource  
-✔ variable  
-✔ output  
-✔ data  
+🧪 **Command Execution Flow**
+Typical Terraform workflow:
+1️⃣ terraform init  
+2️⃣ terraform plan  
+3️⃣ terraform apply  
+4️⃣ terraform destroy (optional)
 
-🧱 **Example: Basic Terraform Configuration**
-provider "aws" {
-  region = "us-east-1"
-}
+📁 **Where CLI Commands Are Executed**
+✔ Run commands inside the directory containing `.tf` files  
+✔ Terraform automatically detects configuration files  
 
-resource "aws_s3_bucket" "example" {
-  bucket = "my-terraform-bucket"
-}
+🧠 **Helpful Terraform CLI Commands**
+🔸 **terraform fmt** – Formats Terraform files  
+🔸 **terraform validate** – Validates configuration syntax  
+🔸 **terraform show** – Displays current state  
+🔸 **terraform providers** – Shows used providers  
 
-🔄 **How Terraform Reads Configuration Files**
-✔ Terraform automatically loads all `.tf` files in a directory  
-✔ File execution order does NOT matter  
-✔ Terraform builds a dependency graph internally  
-✔ Resources are created in the correct order automatically  
+📌 **Best Practices for Terraform CLI**
+✔ Always run `terraform plan` before `apply`  
+✔ Use `terraform fmt` to keep code clean  
+✔ Never run `destroy` on production without confirmation  
+✔ Track changes using Git  
 
-🧠 **Best Practices for Configuration Files**
-✔ Split configurations into logical files  
-✔ Use meaningful resource names  
-✔ Keep configurations clean and readable  
-✔ Always format code using `terraform fmt`  
-✔ Avoid hardcoding sensitive values  
-
-📌 **Important Notes**
-✔ Only `.tf` files are processed by Terraform  
-✔ Configuration files should be stored in Git  
-✔ Secrets should be managed using variables or secret managers  
+📌 **Important Note**
+✔ Terraform CLI commands are **environment-agnostic**  
+✔ Same commands work across AWS, Azure, and GCP  
 
 # 🤝 **Contribute**
 Add more commands, diagrams, or revision notes to help learners revise Terraform faster.
