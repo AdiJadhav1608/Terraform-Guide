@@ -12,8 +12,4 @@ output "instance_id" {
   value       = aws_instance.web_server.id
 }
 
-output "environment" {
-  description = "Deployment environment"
-  value       = var.environment
-}
 #====================================================
