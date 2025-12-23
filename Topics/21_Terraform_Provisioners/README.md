@@ -3,9 +3,11 @@
 ====================================================
 
 🎯 **Objective**
+
 Understand how **Terraform Provisioners** are used to execute **scripts or commands** on local or remote machines during resource creation or destruction.
 
 🔍 **What are Terraform Provisioners?**
+
 Provisioners allow Terraform to run **custom actions** as part of the resource lifecycle.
 
 ✔ Execute scripts  
@@ -13,68 +15,45 @@ Provisioners allow Terraform to run **custom actions** as part of the resource l
 ✔ Run local or remote commands  
 
 ⚠️ **Important Note**
+
 Provisioners are considered a **last resort** and should be avoided when possible in favor of:
 ✔ Cloud-init  
 ✔ Configuration management tools (Ansible, Chef)  
 ✔ User data scripts  
 
 📌 **Types of Provisioners**
+
 ✔ `local-exec` – Runs commands on the machine running Terraform  
 ✔ `remote-exec` – Runs commands on the remote resource  
 ✔ `file` – Copies files to the remote resource  
 
 🧱 **Provisioner Usage Syntax**
+
 provisioner "type" {
   command = "..."
 }
 
 🧪 **Common Use Cases**
+
 ✔ Install packages on EC2  
 ✔ Copy configuration files  
 ✔ Run bootstrap scripts  
 ✔ Perform temporary setup tasks  
 
 🧠 **Best Practices**
+
 ✔ Use provisioners only when unavoidable  
 ✔ Keep commands idempotent  
 ✔ Prefer `local-exec` for automation tasks  
 ✔ Avoid long-running scripts  
 
 📌 **Important Notes**
+
 ✔ Provisioners run during `apply` and `destroy`  
 ✔ Failure can mark resource as tainted  
 ✔ Order matters when multiple provisioners are used  
 
-----------------------------------------------------
-📄 **provisioners.tf**
-----------------------------------------------------
 
-resource "aws_instance" "example" {
-  ami           = "ami-0abcdef1234567890"
-  instance_type = "t3.micro"
-  key_name      = "my-key"
-
-  provisioner "local-exec" {
-    command = "echo EC2 instance created successfully!"
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "sudo yum update -y",
-      "sudo yum install -y nginx",
-      "sudo systemctl start nginx"
-    ]
-
-    connection {
-      type        = "ssh"
-      user        = "ec2-user"
-      private_key = file("~/.ssh/my-key.pem")
-      host        = self.public_ip
-    }
-  }
-}
-
-----------------------------------------------------
 
 # 🤝 **Contribute**
 Add more commands, diagrams, or revision notes to help learners revise Terraform faster.
