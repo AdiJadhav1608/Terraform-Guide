@@ -52,44 +52,6 @@ Terraform CI/CD integration means running Terraform commands automatically using
 ✔ Protect main branch  
 ✔ Use least-privilege IAM roles  
 
-----------------------------------------------------
-📄 **github-actions.yml**
-----------------------------------------------------
-
-name: Terraform CI/CD Pipeline
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-
-jobs:
-  terraform:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: 1.6.0
-
-      - name: Terraform Init
-        run: terraform init
-
-      - name: Terraform Format
-        run: terraform fmt -check
-
-      - name: Terraform Validate
-        run: terraform validate
-
-      - name: Terraform Plan
-        run: terraform plan
-
-----------------------------------------------------
 
 # 🤝 **Contribute**
 Add more commands, diagrams, or revision notes to help learners revise Terraform faster.
